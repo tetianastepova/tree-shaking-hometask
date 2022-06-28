@@ -8,6 +8,10 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  optimization: {
+    usedExports: false,
+    providedExports: false,
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -19,10 +23,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-      }
+      },
     ]
   },
-  mode: 'development',
+  mode: 'production',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 9000
